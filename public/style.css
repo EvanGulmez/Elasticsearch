@@ -1,11 +1,12 @@
 html, body {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
-    background-color: #dce9ff;
-  }
-  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(214, 100%, 97%);
+}
+
   body, div, h1, form, input, p {
     padding: 0;
     margin: 0;
@@ -15,11 +16,17 @@ html, body {
     color: #000;
   }
   
+  h2{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
   h1 {
     padding: 10px 0;
     font-size: 32px;
-    font-weight: 300;
+    font-weight: bold;
     text-align: center;
+    border-bottom: solid 1px #75A7FF;
   }
   
   p {
@@ -31,18 +38,42 @@ html, body {
     opacity: 0.3;
   }
   
+  
   .main-block {
-    width: 100%;
+    width: 15%;
+    min-width: 15em;
     height: auto;
     padding: 10px;
     border-radius: 5px;
     border: solid 1px #75A7FF;
     background: #ffffff;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 8px 0px rgb(191 219 254);
+    /* box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset; */
+  }
+
+  #resultat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    height: 68%;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #75A7FF;
+    background: #ffffff;
+    box-shadow: 10px 8px 0px rgb(191 219 254);
   }
   
+  #listFilms {
+  }
+
   .forms {
     display: flex;
     flex-direction: column;
@@ -50,7 +81,6 @@ html, body {
     justify-content: center;
     margin: 0 30px;
   }
-  
 
   input[type="text"],
   input[type="password"],
@@ -63,9 +93,10 @@ html, body {
     margin: 13px 0;
     padding-left: 10px;
     border-radius: 5px;
-    border: solid 1px #cbc9c9;
+    border: solid 1px rgba(255,255,255,0.5);
     box-shadow: 1px 2px 5px rgba(0,0,0,.09);
     background: #fff;
+    box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset;
   }
   
   input[type="password"] {
@@ -87,8 +118,22 @@ html, body {
     font-size: 14px;
     font-weight: 600;
     color: #fff;
+    box-shadow: 2px 2px 2px 0px rgba(9,30,66,.25);
+    
   }
   
+  #listFilms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: crimson;
+    font-size: 100px;
+  }
+
+
   button:hover {
     background: #75A7FF;
   }
