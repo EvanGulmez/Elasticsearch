@@ -14,3 +14,4 @@ Sauvegarder les données telle que le password et le token pour se connecter a K
 Copier coller l'url générer en remplaçant "0.0.0.0" par "localhost"
 
 Username : elastic et coller le mdp ainsi que le token pour se connecter  
+
