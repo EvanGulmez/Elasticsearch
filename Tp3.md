@@ -1,3 +1,5 @@
+Comment Elasticsearch stocke ses données et comment certaines de ces notions permettent de gagner en robustesse (en termes de sauvegarde et d’intégrité des données). Terminez en résumant les fonctionnalités de mise à l’échelle 
+
 Elasticsearch adopte une approche naturellement distribuée pour le stockage de ses données. Les documents sont répartis dans différentes partitions, appelées shards, qui sont dupliquées pour assurer la redondance des données en cas de défaillance matérielle. Cette distribution des données permet à Elasticsearch de s'étendre horizontalement en ajoutant des centaines, voire des milliers, de serveurs, et de gérer des volumes massifs de données, même à l'échelle des pétaoctets. Cela garantit une meilleure robustesse en termes de sauvegarde et d'intégrité des données.
 
 D’après vos recherches, pourquoi l'utiliser ? Est-ce le bon paramètre de recherche pour effectuer de la recherche paginée ?
