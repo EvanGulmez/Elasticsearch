@@ -1,10 +1,27 @@
 var modalMod = document.getElementById("modalMod");
-var btnMod = document.getElementById("openModalBtnMod");
-var spanMod = document.getElementsByClassName("close")[0];
+
 
 var modalDel = document.getElementById("modalDel");
-var btnDel = document.getElementById("openModalBtn");
-var spanDel = document.getElementsByClassName("close")[0];
+
+const handleFile = async () => {
+  var input = document.querySelector('input[type="file"]');
+
+  var data = new FormData();
+  data.append("file", input.files[0]);
+
+  console.log("Envoi des données en cours...");
+  try {
+    const response = await fetch("/submitFile", {
+      method: "POST",
+      body: data,
+    });
+    const result = await response.text();
+    alert(result);
+  }
+  catch (error) {
+    alert("Erreur lors de l'envoi des données");
+  }
+}
 
 const getAllTitles = async (type) => {
   try {
@@ -159,6 +176,57 @@ window.onclick = function (event) {
     modalDel.style.display = "none";
   }
 };
+
+const handleGetAll = async () => {
+  try{
+    const response = await fetch("/getAllTitles");
+    const result = await response.json();
+    document.getElementById("listFilms").innerHTML = "";
+    for (let i = 0; i < result.length; i++) {
+      const film = result[i]._source;
+      const id = result[i]._id;
+      if (
+        film.title != undefined &&
+        film.director != undefined &&
+        film.year != undefined &&
+        film.title != "" &&
+        film.director != "" &&
+        film.year != ""
+      ){
+        const title = film.title;
+        const director = film.director;
+        const year = film.year;
+        var e = document.createElement("div");
+
+        var titleElement = document.createElement("p");
+      titleElement.textContent = "Nom du film : " + title;
+      titleElement.style.fontWeight = "500";
+      titleElement.style.fontSize = "20px";
+      titleElement.style.marginBottom = "5px";
+      e.appendChild(titleElement);
+
+      var yearElement = document.createElement("p");
+      yearElement.textContent = "Année de sortie : " + year;
+      yearElement.style.fontWeight = "500";
+      yearElement.style.fontSize = "20px";
+      yearElement.style.marginBottom = "5px";
+      e.appendChild(yearElement);
+
+      var directorElement = document.createElement("p");
+      directorElement.textContent = "Réalisateur : " + director;
+      directorElement.style.fontWeight = "500";
+      directorElement.style.fontSize = "20px";
+      directorElement.style.marginBottom = "30px";
+      e.appendChild(directorElement);
+
+      document.getElementById("listFilms").appendChild(e);
+      }
+    }
+  }catch(error){
+    alert("Erreur lors de l'envoi des données");
+  }
+}
+
 const handleSearch = async () => {
   const search = document.getElementById("search").value;
   const data = { search };
