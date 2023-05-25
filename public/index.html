@@ -37,18 +37,26 @@
 
         <div class="file-upload">
           <div class="file-select">
-            <div class="file-select-button" id="fileName">
+            <label for="file" class="file-select-button" id="fileName">
               Choisir un Fichier
-            </div>
+            </label>
 
-            <input type="file" class="file" onchange="handleFile();" />
-            
+            <input
+              type="file"
+              id="file"
+              class="file"
+              onchange="handleFile();"
+            />
           </div>
-          
         </div>
         <div id="Dl-Btn">
-          <a href='/uploads/Template.xlsx' download="Template.xlsx" id="DlTemplate">Télécharger le fichier</a>
-      </div>
+          <a
+            href="/uploads/Template.xlsx"
+            download="Template.xlsx"
+            id="DlTemplate"
+            >Télécharger le fichier</a
+          >
+        </div>
       </div>
     </div>
     <div id="resultat">
